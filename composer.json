@@ -1,0 +1,22 @@
+{
+    "name": "derrabus/poq",
+    "description": "PHP Object Queries",
+    "require": {
+        "php": ">=5.5.0-dev@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "3.7.*"
+    },
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Alexander M. Turek",
+            "email": "me@derrabus.de"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "Rabus\\POQ" : "src/"
+        }
+    }
+}
