@@ -237,16 +237,16 @@
         },
         {
             "name": "phpunit/phpunit",
-            "version": "3.7.8",
+            "version": "3.7.9",
             "source": {
                 "type": "git",
                 "url": "git://github.com/sebastianbergmann/phpunit.git",
-                "reference": "3.7.8"
+                "reference": "3.7.9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://github.com/sebastianbergmann/phpunit/zipball/3.7.8",
-                "reference": "3.7.8",
+                "url": "https://github.com/sebastianbergmann/phpunit/archive/3.7.9.zip",
+                "reference": "3.7.9",
                 "shasum": ""
             },
             "require": {
@@ -268,7 +268,7 @@
                 "ext-simplexml": "*",
                 "ext-tokenizer": "*"
             },
-            "time": "2012-10-16 22:37:08",
+            "time": "2012-11-06 19:49:38",
             "bin": [
                 "composer/bin/phpunit"
             ],
