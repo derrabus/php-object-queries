@@ -2,15 +2,12 @@
 
 namespace Rabus\POQ;
 
-use ArrayIterator;
-use InvalidArgumentException;
-use IteratorAggregate;
-use Traversable;
+use ArrayIterator, InvalidArgumentException, Traversable;
 
-class POQ implements IteratorAggregate
+use Rabus\POQ\Query\Query;
+
+abstract class POQ
 {
-    protected $collection;
-
     /**
      * @param mixed $collection
      * @throws InvalidArgumentException
@@ -23,16 +20,8 @@ class POQ implements IteratorAggregate
     }
 
     /**
-     * @param Traversable $collection
-     */
-    protected function __construct(Traversable $collection)
-    {
-        $this->collection = $collection;
-    }
-
-    /**
      * @param array|Traversable $collection
-     * @return self
+     * @return Query
      */
     public static final function from($collection)
     {
@@ -40,48 +29,6 @@ class POQ implements IteratorAggregate
         if (is_array($collection)) {
             $collection = new ArrayIterator($collection);
         }
-        return new static($collection);
-    }
-
-    /**
-     * @return Traversable
-     */
-    public function getIterator()
-    {
-        foreach ($this->collection as $key => $value) {
-            yield $key => $value;
-        }
-    }
-
-    public final function toArray()
-    {
-        return iterator_to_array($this);
-    }
-
-    /**
-     * @param int $count
-     * @return Query\Take
-     */
-    public final function take($count)
-    {
-        return new Query\Take($this, $count);
-    }
-
-    /**
-     * @param int $count
-     * @return Query\Skip
-     */
-    public final function skip($count)
-    {
-        return new Query\Skip($this, $count);
-    }
-
-    /**
-     * @param callable $condition
-     * @return Query\Where
-     */
-    public final function where(callable $condition)
-    {
-        return new Query\Where($this, $condition);
+        return new Query($collection);
     }
 }

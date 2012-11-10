@@ -5,9 +5,7 @@ namespace Rabus\POQ\Query;
 use InvalidArgumentException;
 use Traversable;
 
-use Rabus\POQ\POQ;
-
-class Take extends POQ
+class Take extends Query
 {
     /**
      * @var int
@@ -18,7 +16,7 @@ class Take extends POQ
      * @param Traversable $collection
      * @param int $maxCount
      */
-    protected function __construct(Traversable $collection, $maxCount)
+    public function __construct(Traversable $collection, $maxCount)
     {
         $this->validateMaxCount($maxCount);
         parent::__construct($collection);

@@ -5,9 +5,7 @@ namespace Rabus\POQ\Query;
 use InvalidArgumentException;
 use Traversable;
 
-use Rabus\POQ\POQ;
-
-class Skip extends POQ
+class Skip extends Query
 {
     /**
      * @var int
@@ -18,7 +16,7 @@ class Skip extends POQ
      * @param Traversable $collection
      * @param int $skipCount
      */
-    protected function __construct(Traversable $collection, $skipCount)
+    public function __construct(Traversable $collection, $skipCount)
     {
         $this->validateSkipCount($skipCount);
         parent::__construct($collection);

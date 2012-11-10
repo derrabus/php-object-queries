@@ -4,9 +4,7 @@ namespace Rabus\POQ\Query;
 
 use Traversable;
 
-use Rabus\POQ\POQ;
-
-class Where extends POQ
+class Where extends Query
 {
     /**
      * @var callable
@@ -17,7 +15,7 @@ class Where extends POQ
      * @param Traversable $collection
      * @param callable $condition
      */
-    protected function __construct(Traversable $collection, callable $condition) {
+    public function __construct(Traversable $collection, callable $condition) {
         parent::__construct($collection);
 
         $this->condition = $condition;
